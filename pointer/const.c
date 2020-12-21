@@ -61,6 +61,6 @@ int main()
 //F	*p3 = 100;
 //F	p3 = &j;
 	printf("*p3 = %d\n", *p3);
-
+	
 
 	return 0;
