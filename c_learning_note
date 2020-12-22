@@ -619,9 +619,99 @@ sizeof = 9
 		
 					九、动态内存管理
 
+malloc ralloc realloc free
+
+原则：谁申请谁释放
+
+关键字typedef
+	对已有的数据类型定义新的名字
+
+typedef 已有的数据类型 新名字;
+
+	基本类型和指针	
+
+		#define INT int
+		typedef int INT;
+
+		INT i; --> int i;
+
+		#define IP int *
+		typedef int * IP;
+
+		IP p, q; --> int * p, q; -- define 定义了一个指针和一个整型
+		IP p, q; --> int *p, *q; -- typedef 定义了两个指针（目标结果）
+
+	数组typedef
+
+		typedef int ARR[6] --> int [6] ARR
+		ARR a; --> int a[6];
+
+	结构体typedef
+
+		struct node_st
+		{
+			int i;
+			float f;
+		};
+
+		typedef struct node_st NODE;
+		NODE a; -> struct node_st a;
+		NODE *p; -> struct node_st *p;
+
+		typedef struct node_st *NODEP;
+		NODEP p; -> struct node_st *p;
+
+		typedef struct
+		{
+			int i;
+			float f;
+		} NODE, *NODEP;
+
+	函数typedef
+
+		typedef int FUNC(int); --> int(int) FUNC;
+		FUNC f; --> int f(int);
+
+		typedef int *FUNCP(int);
+		FUNCP p; --> int *p(int);
+
+		typedef int *(*FUNCP)(int);
+		FUNCP p; --> int *(*p)(int);
 
 
+				十、Makefile工程管理
+样例工程
+	proj
+		feat 1:
+			module 1:
+				1.c
+				2.c
+				3.c
+			module 2:
+				2.c
+				4.c
+				5.c
+			module 3:
+				2.c
+				3.c
+				4.c
+		feat 2:
+		...
+		feat 3:
+		...
+	
+手动编译存在的问题
+	如果3.c中出现错误，则需要重新编译调试其他所有包含3.c的模块和功能
 
+
+makefile编写语法规则
+
+	(target): (dependencies)
+		(command)
+
+	1. 可以通过定义变量简化makefile的编写
+	2. $^ 替换上一句的依赖文件; $@替换上一句的目标文件
+	3. 可以通过%通配符，替换所有的command
 
 
 
