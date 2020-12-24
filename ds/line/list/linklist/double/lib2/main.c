@@ -18,6 +18,12 @@ static void print_score(const void *record)
     printf("%d %s %d %d\n", r->id, r->name, r->math, r->chinese);
 }
 
+static int always_match(const void * p1, const void * p2)
+{
+    return 0;
+}
+
+
 static int id_cmp(const void * key, const void * record)
 {
     const int *k = key;
@@ -88,7 +94,8 @@ int main(int argc, char const *argv[])
     }
 //删除并返回数据样例
     data_fetch = malloc(sizeof(*data_fetch));
-    ret_fetch = dl_list_fetch(handler, fetch_name, name_cmp, data_fetch);
+    ret_fetch = dl_list_fetch(handler, (void *)0 , always_match, data_fetch);
+    // ret_fetch = dl_list_fetch(handler, fetch_name, name_cmp, data_fetch);
     if(ret_fetch)
         printf("dl_list_fetch failed!\n");
     else
