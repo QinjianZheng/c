@@ -776,7 +776,7 @@ makefile编写语法规则
 							char data[0]; // 作为占位符，是入口地址
 						}
 						面向对象（参考lib3）
-						封装函数到结构体中 -- 通过函数指针调用
+							封装函数到结构体中 -- 通过函数指针调用
 						完整的隐藏和封装（参考lib4）
 			内核中双向环链的实现
 				
@@ -802,6 +802,52 @@ makefile编写语法规则
 	栈、队列例子：球钟算法
 
 	静态库和动态库实现
+		静态库
+			libxx.a
+			xx 指代库名
+
+			生成静态库	
+				ar -cr libxx.a yyy.o
+
+			发布到
+				/usr/local/include
+				/usr/local/lib
+			链接静态库
+				gcc (-L/usr/local/lib) -o main main.o -lxx
+				-l 链接 xx 指代库名
+				参数必须在最后，有依赖关系
+
+			特定项目所带的库
+			占用编译时间
+		动态库
+			查看关联动态库
+				Linux: ldd ./main (./main 可执行文件，以main为例)
+				MacOS: otool -L ./main
+			
+			生成动态库
+			Linux:
+				libxx.so
+				gcc -shared -fpic -o libxx.so yyy.c
+			macOS:
+				libxx.dylib
+				gcc -dynamiclib -fpic -o libxx.dylib yyy.c
+				
+			发布到
+				/usr/local/include
+				/usr/local/lib
+			
+			Linux:
+				在 /etc/ld.so.conf 中添加路径
+				/sbin/ldconfig 重读 /etc/ld.so.conf
+			本机（macOS）：
+				没有配置路径
+			
+			链接动态库
+				gcc (-I/usr/local/include) (-L/usr/local/lib) -o main main.c -lxx
+			
+			共享库
+
+
 		以栈、队列实现作为例子
 			双向环链的二次封装（调用）
 		
