@@ -832,6 +832,10 @@ makefile编写语法规则
 				libxx.dylib
 				gcc -dynamiclib -fpic -o libxx.dylib yyy.c
 				
+			经测试，当库的.c文件包含另一个或多个其他的.c文件时，在生成动态库需要加上所包含的文件，例：gcc -dynamiclib -fpic -o libstack.dylib stack.c dl_list.c
+				stack.c 中包含dl_list.h， 实现在dl_list.c
+			这样的好处是，因为已经将所有需要的.c文件都已经包含进去，生成的库直接使用，而不需要在链接时加上dl_list库；缺点是多个库文件占用磁盘空间
+
 			发布到
 				/usr/local/include
 				/usr/local/lib
@@ -844,9 +848,8 @@ makefile编写语法规则
 			
 			链接动态库
 				gcc (-I/usr/local/include) (-L/usr/local/lib) -o main main.c -lxx
-			
+					使用多个库需要把所有的库都加上，例：gcc -o main main.c -lstack -ldl_list
 			共享库
-
 
 		以栈、队列实现作为例子
 			双向环链的二次封装（调用）
