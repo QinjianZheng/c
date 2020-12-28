@@ -837,8 +837,51 @@ makefile编写语法规则
 		以栈、队列实现作为例子
 			双向环链的二次封装（调用）
 		
+树
+	深度（层数）height
 
-树状
+	度 degree
+	叶子 leaves
+	孩子 children
+	兄弟 siblings
+	堂兄弟 cousins
+
+	二叉树：
+		满二叉树 full binary tree
+			Definition:
+				A binary tree is full if it is empty, or if the heights of its two subtrees are the same and all nodes are either a leaf or a node with two children.
+			Fact: if height = k, then the number of nodes = 2^k-1
+		
+		完全二叉树
+			Definition:
+				A binary tree is complete if it is empty, or if if the heights of its two subtrees differ at most 1, and the nodes with only one child can only has a left child.
+	存储：
+		顺序存储
+			只能存储满二叉树，能够明确每一个数组空间对应的树结点
+		链式存储
+			结点结构（左孩子指针，值空间，右孩子指针）
+
+	遍历方式：
+						A
+				B				E
+					C				F
+				D				G				
+							H		K								
+		按行 // 本质是BFS 广度优先
+			A BE CF DG HK
+		先序（根，左，右）
+			A BCD EFGHK
+		中序（左，根，右）
+			BDC A EHGKF
+		后序（左，右，根）
+			DCB HKGFE A
+
+		平衡二叉树
+			平衡条件：结点的左子树和右子树的结点数差值最多为1（每一个结点都需要满足平衡条件）
+				不满足平衡条件，通过左旋右旋，重新选择根结点，直到满足平衡条件
+				树的左边（右边）的结点更多，则右旋（左旋）
+					左旋：选择当前根结点的右孩子为根结点，将原来的根结点及其子树作为右孩子的左子树。如果右孩子的左子树不为空，则将原来的根结点及其子树连接到左子树的最末端。
+
+		
 
 图
-
