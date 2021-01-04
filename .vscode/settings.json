@@ -4,6 +4,9 @@
         "iterator": "cpp",
         "random": "cpp",
         "ranges": "cpp",
-        "__locale": "c"
+        "__locale": "c",
+        "string": "c",
+        "cstdio": "cpp",
+        "__config": "cpp"
     }
 }
