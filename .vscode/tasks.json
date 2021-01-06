@@ -7,8 +7,9 @@
 			"command": "/usr/bin/gcc",
 			"args": [
 				"-g",
-				"${fileDirname}/*.c",
-				// "${file}",
+				// "${fileDirname}/*.c",
+
+				"${file}.c",
 				// "${fileDirname}/list.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"

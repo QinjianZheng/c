@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define FNAME "./out"
+#define FNAME "out"
 
 typedef struct node_st
 {
