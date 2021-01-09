@@ -59,9 +59,9 @@ int main(int argc, char const *argv[])
         data.math = rand() % 100;
         data.chinese = rand() % 100;
 
-    ret = dl_list_insert(handler, &data, DL_LIST_BACKWARD);
-    if(ret)
-        exit(1);
+        ret = dl_list_insert(handler, &data, DL_LIST_BACKWARD);
+        if(ret)
+            exit(1);
     }
     dl_list_display(handler, print_score);
 //查找数据样例

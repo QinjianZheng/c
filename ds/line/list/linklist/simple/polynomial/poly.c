@@ -59,7 +59,7 @@ void poly_union(poly *p1, poly *p2)
         {
             cur->next = node1;
             cur = node1;
-            node1 = node1->next;   
+            node1 = node1->next;
         }
         else if(node1->exp > node2->exp)
         {
