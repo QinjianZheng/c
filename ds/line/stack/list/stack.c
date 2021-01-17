@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "stack.h"
 #include "dl_list.h"
 
@@ -27,4 +28,8 @@ int stack_pop(STACK *ptr, void *data)
 void stack_destroy(STACK *ptr)
 {
     dl_list_destroy(ptr);
+}
+
+bool stack_isempty(STACK *ptr) {
+    return (&ptr->head == ptr->head.next);
 }
