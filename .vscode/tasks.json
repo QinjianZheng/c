@@ -9,7 +9,7 @@
 				"-g",
 				// "${fileDirname}/*.c",
 
-				"${file}.c",
+				"${file}",
 				// "${fileDirname}/list.c",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}"

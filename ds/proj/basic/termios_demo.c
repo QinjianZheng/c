@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
         if(ch == 'Q')
             break;
         printf("%x ", ch);
-        fflush(NULL);
+        fflush(NULL); // 刷新缓存区
     }
     // 恢复设置
     tcsetattr(0, TCSANOW, &old);
