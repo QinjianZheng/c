@@ -80,12 +80,19 @@ int main(int argc, char const *argv[])
     char frame[20][41];
     for(i = 0; i < 40; i++) {
         frame[0][i] = '=';
+        frame[19][i] = '=';
     }
     frame[0][i] = '\0';
-    for(i = 1; i < 20; i++) {
+    frame[19][i] = '\0';
+    for(i = 1; i < 19; i++) {
         frame[i][0] = '|';
         frame[i][1] = '|';
-        frame[i][2] = '\0';
+        for(int j = 2; j < 38; j++) {
+            frame[i][j] = ' ';
+        }
+        frame[i][38] = '|';
+        frame[i][39] = '|';
+        frame[i][40] = '\0';
     }
     for(i = 0; i < 20; i++,x++) {
             printf("\033[%d;%dH%s\n", x, y, frame[i]);

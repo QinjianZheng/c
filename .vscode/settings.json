@@ -8,5 +8,7 @@
         "string": "c",
         "cstdio": "cpp",
         "__config": "cpp"
-    }
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.intelliSenseEngine": "Tag Parser"
 }
